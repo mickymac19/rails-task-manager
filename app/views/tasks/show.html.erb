@@ -1,0 +1,16 @@
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <h2><%= @task.details %></h2>
+
+<%= link_to edit_task_path(@task) do %>
+  <button type="button">Edit Task!</button/>
+<% end %>
+
+  <% if @task.completed == true %>
+     <p>This task is completed</p>
+  <% else %>
+    <p>This task is not completed yet</p>
+  <% end %>
+   <p><%= link_to '🔄Back to list', tasks_path  %></p>
+<%= link_to '🗑', task_path(@task), method: :delete, data: { confirm: 'Are you sure?' }  %>
+</div>
